@@ -5,8 +5,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 /** @title Basic date range picker */
 @Component({
-  selector: 'app-mat-datepicker',
-  templateUrl: 'mat-datepicker.component.html',
+  selector: 'app-material-datepicker',
+  templateUrl: 'material-datepicker.component.html',
   imports: [MatFormFieldModule, MatDatepickerModule],
   providers: [provideNativeDateAdapter()],
   changeDetection: ChangeDetectionStrategy.OnPush,
