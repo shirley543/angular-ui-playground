@@ -9030,7 +9030,7 @@ export class CustomerService {
         return Promise.resolve(this.getData());
     }
 
-    getCustomers(params?: any) {
-        return this.http.get<any>('https://www.primefaces.org/data/customers', { params: params }).toPromise();
-    }
+    // getCustomers(params?: any) {
+    //     return this.http.get<any>('https://www.primefaces.org/data/customers', { params: params }).toPromise();
+    // }
 };

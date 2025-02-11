@@ -21,7 +21,7 @@
                     <p-inputIcon>
                         <i class="pi pi-search"></i>
                     </p-inputIcon>
-                    <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Keyboard Search" />
+                    <input pInputText type="text" [(ngModel)]="searchValue" (input)="filterGlobal(dt, $event)" placeholder="Keyboard Search" />
                 </p-iconField>
             </div>
         </ng-template>
@@ -50,7 +50,7 @@
                         <p-sortIcon field="representative.name" />
                         <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false" class="ml-auto">
                             <ng-template #filter let-value let-filter="filterCallback">
-                                <p-multiselect [filter]="false" [(ngModel)]="value" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name" class="w-full">
+                                <p-multiselect [filter]="false" [options]="representatives" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name" class="w-full">
                                     <ng-template let-option #item>
                                         <div class="flex items-center gap-2">
                                             <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" style="width: 32px" />
@@ -82,7 +82,7 @@
                         <p-sortIcon field="status" />
                         <p-columnFilter field="status" matchMode="equals" display="menu" class="ml-auto">
                             <ng-template #filter let-value let-filter="filterCallback">
-                                <p-dropdown [(ngModel)]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
+                                <p-dropdown [options]="statuses" (onChange)="filter($event.value)" placeholder="Any">
                                     <ng-template let-option #item>
                                         <p-tag [value]="option.label" [severity]="getSeverity(option.label)" />
                                     </ng-template>

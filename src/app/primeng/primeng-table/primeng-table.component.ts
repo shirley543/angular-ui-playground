@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer, Representative } from '../../domain/customer';
 import { CustomerService } from '../../services/customer.service';
-import { TableModule } from 'primeng/table';
+import { Table, TableModule } from 'primeng/table';
 import { Tag } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { InputIcon } from 'primeng/inputicon';
@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     providers: [CustomerService],
     styleUrl: 'primeng-table.component.scss',
 })
-export class TableCustomersDemo implements OnInit{
+export class PrimengTableComponent implements OnInit{
     customers!: Customer[];
 
     selectedCustomers!: Customer[];
@@ -84,10 +84,19 @@ export class TableCustomersDemo implements OnInit{
                 return 'info';
 
             case 'negotiation':
-                return 'warning';
+                return 'warn';
 
             case 'renewal':
-                return null;
+            default:
+                return 'warn';
         }
+    }
+
+    clear(dt: any) {}
+
+    filterGlobal(dt: Table, event: Event) {
+        const eventTarget = event.target as HTMLInputElement;
+        const value = eventTarget.value;
+        dt.filterGlobal(value, 'contains')
     }
 }
