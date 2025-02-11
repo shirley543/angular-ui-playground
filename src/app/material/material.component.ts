@@ -5,6 +5,7 @@ import { MaterialButtonComponent } from "./material-button/material-button.compo
 import { MaterialSlider } from './material-slider/material-slider.component';
 import { MaterialCheckbox } from "./material-checkbox/material-checkbox.component";
 import { MaterialRadio } from "./material-radio/material-radio.component";
+import { MaterialSelectComponent } from "./material-select/material-select.component";
 
 @Component({
   selector: 'app-material',
@@ -13,7 +14,8 @@ import { MaterialRadio } from "./material-radio/material-radio.component";
     MaterialButtonComponent,
     MaterialSlider,
     MaterialCheckbox,
-    MaterialRadio
+    MaterialRadio,
+    MaterialSelectComponent
 ],
   templateUrl: './material.component.html',
   styleUrl: './material.component.scss',
