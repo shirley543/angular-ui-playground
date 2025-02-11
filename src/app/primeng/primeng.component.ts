@@ -3,6 +3,7 @@ import { PrimengButtonComponent } from "./primeng-button/primeng-button.componen
 import { PrimengToggleComponent } from "./primeng-toggle/primeng-toggle.component";
 import { PrimengSliderComponent } from "./primeng-slider/primeng-slider.component";
 import { CheckboxDynamicDemo } from "./primeng-checkbox/primeng-checkbox.component";
+import { PrimengRadioComponent } from "./primeng-radio/primeng-radio.component";
 
 @Component({
   selector: 'app-primeng',
@@ -10,7 +11,8 @@ import { CheckboxDynamicDemo } from "./primeng-checkbox/primeng-checkbox.compone
     PrimengButtonComponent,
     PrimengToggleComponent,
     PrimengSliderComponent,
-    CheckboxDynamicDemo
+    CheckboxDynamicDemo,
+    PrimengRadioComponent
 ],
   templateUrl: './primeng.component.html',
   styleUrl: './primeng.component.scss',
