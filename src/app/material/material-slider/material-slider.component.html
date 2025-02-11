@@ -1,0 +1,16 @@
+<!-- Single slider -->
+<mat-slider
+  [disabled]="false"
+  [max]="500"
+  [min]="200"
+  [step]="20"
+  [discrete]="true"
+  [showTickMarks]="false">
+  <input matSliderThumb #slider>
+</mat-slider>
+
+<!-- Range slider -->
+<mat-slider min="200" max="500">
+  <input value="300" matSliderStartThumb>
+  <input value="400" matSliderEndThumb>
+</mat-slider>
