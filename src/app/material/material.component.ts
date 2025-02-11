@@ -7,6 +7,7 @@ import { MaterialCheckbox } from "./material-checkbox/material-checkbox.componen
 import { MaterialRadio } from "./material-radio/material-radio.component";
 import { MaterialSelectComponent } from "./material-select/material-select.component";
 import { MaterialTable } from "./material-table/material-table.component";
+import { SlideToggleConfigurableExample } from "./material-toggle/material-toggle.component";
 
 @Component({
   selector: 'app-material',
@@ -17,7 +18,8 @@ import { MaterialTable } from "./material-table/material-table.component";
     MaterialCheckbox,
     MaterialRadio,
     MaterialSelectComponent,
-    MaterialTable
+    MaterialTable,
+    SlideToggleConfigurableExample
 ],
   templateUrl: './material.component.html',
   styleUrl: './material.component.scss',
