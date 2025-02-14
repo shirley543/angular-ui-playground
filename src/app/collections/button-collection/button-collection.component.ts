@@ -40,8 +40,8 @@ export class ButtonCollectionComponent {
     smFontSize: "24px",
     // Background
     primaryBackground: "orange",
-    primaryHoverBackground: "orange",
-    primaryActiveBackground: "orange",
+    primaryHoverBackground: "darkorange",
+    primaryActiveBackground: "orangered",
     // Border
     primaryBorderColor: "red",
     primaryHoverBorderColor: "red",
