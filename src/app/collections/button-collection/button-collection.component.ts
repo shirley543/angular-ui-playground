@@ -10,6 +10,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { $dt } from '@primeng/themes';
+
 
 
 @Component({
@@ -24,4 +26,33 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './button-collection.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonCollectionComponent { }
+export class ButtonCollectionComponent { 
+  // Dt customizations
+  customizedPrimengFlatButton = {
+
+  };
+
+  customizedPrimengStrokedButton = {
+    
+  };
+
+  customizedPrimengIconButton = {
+
+  };
+
+  ngOnInit() {
+
+  }
+}
+
+/**
+ * Notes:
+ * 
+ * Material:
+ * - Makes distinction between buttons (flat, stroked, raised, icon) style-wise and style override-wise
+ * 
+ * Primeng:
+ * - Makes distinction between buttons via usage-type (primary, secondary, etc; mainly color) and style-type (main, raised, outlined, etc). Style overrides via usage-type
+ * 
+ * 
+ */

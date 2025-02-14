@@ -3,6 +3,8 @@
 @use "./app/styles/my-theme-colors.scss" as my-theme;
 
 // @import "@angular/material/prebuilt-themes/azure-blue.css";
+@import "primeicons/primeicons.css";
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

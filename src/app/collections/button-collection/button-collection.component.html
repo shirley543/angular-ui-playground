@@ -39,18 +39,35 @@
     </button>
 
     <!-- Icon Button, Customized -->
-    <button mat-icon-button class="customized-mat-icon-button">
-      <mat-icon>mic</mat-icon>
+    <button aria-label="Icon Button, Customized" mat-icon-button class="customized-mat-icon-button">
+      <mat-icon svgIcon="my_download_icon"></mat-icon>
     </button>
   </div>
 
-  <!-- Link, stroked, flat, their icon, custom icon -->
-  <!-- + Ability to change typography, colors,
-  border-radius, text color, border -->
-
-  <!-- PrimeNG button -->
+  <!-- PrimeNG buttons -->
+  <!-- https://primeng.org/button -->
+  <!-- https://primeng.org/theming -->
   <div class="buttons-container">
-    <p-button label="Check" />
+    <p-button label="Flat Button, Their Icon" icon="pi pi-user" />
+    <p-button label="Flat Button, Custom Icon">
+      <!-- Note: icon color not inherited from button (black) -->
+      <img alt="dropdown icon" src="/assets/download.svg">
+    </p-button>
+    <p-button label="Flat Button, Disabled" [disabled]="true" />
+    <p-button [outlined]="true" label="Stroked Button" />
+    <p-button icon="pi pi-user" />
+    <p-button>
+      <img alt="dropdown icon" src="/assets/download.svg">
+    </p-button>
+    <p-button label="Flat Button, Customized" [dt]="customizedPrimengFlatButton">
+      <img alt="dropdown icon" src="/assets/download.svg">
+    </p-button>
+    <p-button label="Stroked Button, Customized" [dt]="customizedPrimengStrokedButton">
+      <img alt="dropdown icon" src="/assets/download.svg">
+    </p-button>
+    <p-button ariaLabel="Icon button, Customized" [dt]="customizedPrimengIconButton">
+      <img alt="dropdown icon" src="/assets/download.svg">
+    </p-button>
   </div>
 
   <!-- NgZorro button -->
