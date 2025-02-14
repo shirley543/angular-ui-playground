@@ -17,6 +17,7 @@ export class AppComponent {
   constructor(private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
   ) {
+    // Material: Adding icons via register
     this.matIconRegistry.addSvgIcon(
       `my_download_icon`,
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/download.svg")

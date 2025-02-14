@@ -6,7 +6,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 // PrimeNG setup
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
 
 // NgZorro setup
 import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
@@ -14,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { MyPrimengPreset } from './styles/my-primeng-theme';
 
 registerLocaleData(en);
 
@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     // PrimeNG setup
     providePrimeNG({
       theme: {
-          preset: Aura
+        preset: MyPrimengPreset,
       }
     }),
     // NgZorro setup

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
-@use "./app/styles/my-theme-colors.scss" as my-theme;
+@use "./app/styles/my-material-theme-colors.scss" as my-material-theme;
 
 // @import "@angular/material/prebuilt-themes/azure-blue.css";
 @import "primeicons/primeicons.css";
@@ -22,8 +22,8 @@ html {
   // Apply custom theme
   @include mat.theme((
     color: (
-      primary: my-theme.$primary-palette,
-      tertiary: my-theme.$tertiary-palette,
+      primary: my-material-theme.$primary-palette,
+      tertiary: my-material-theme.$tertiary-palette,
       theme-type: light,
     ),
     typography: Roboto,
