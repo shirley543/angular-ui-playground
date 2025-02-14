@@ -27,10 +27,31 @@ import { $dt } from '@primeng/themes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonCollectionComponent { 
-  // Dt customizations
-  customizedPrimengFlatButton = {
 
+  // PrimeNG overrides
+  customizedPrimengFlatButton = {
+    borderRadius: "12px",
+    paddingX: "24px",
+    paddingY: "24px",
+    iconOnlyWidth: "60px",
+    // Font weight
+    // (No option to change text on a button basis)
+    labelFontWeight: "900",
+    smFontSize: "24px",
+    // Background
+    primaryBackground: "orange",
+    primaryHoverBackground: "orange",
+    primaryActiveBackground: "orange",
+    // Border
+    primaryBorderColor: "red",
+    primaryHoverBorderColor: "red",
+    primaryActiveBorderColor: "red",
+    // Main colors
+    primaryColor: "red",
+    primaryHoverColor: "red",
+    primaryActiveColor: "red",
   };
+
 
   customizedPrimengStrokedButton = {
     
