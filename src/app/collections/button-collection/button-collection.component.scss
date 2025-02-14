@@ -1,3 +1,57 @@
+@use '@angular/material' as mat;
+
 :host {
   display: block;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.button-collection {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.customized-mat-flat-button {
+  @include mat.button-overrides((
+    filled-container-shape: 2px,
+    filled-container-color: orange,
+    filled-label-text-color: red,
+    filled-label-text-font: "Arial",
+    filled-label-text-size: 16px,
+    filled-label-text-weight: 900,
+    filled-horizontal-padding: 24px,
+    filled-container-height: 60px,
+  ));
+}
+
+.customized-mat-stroked-button {
+  @include mat.button-overrides((
+    outlined-outline-width: 2px,
+    outlined-container-shape: 6px,
+    outlined-label-text-color: red,
+    outlined-outline-color: orange,
+    outlined-label-text-font: "Arial",
+    outlined-label-text-size: 16px,
+    outlined-label-text-weight: 900,
+    outlined-horizontal-padding: 24px,
+    outlined-container-height: 60px,
+    outlined-state-layer-color: red,
+  ));
+}
+
+.customized-mat-icon-button {
+  @include mat.icon-button-overrides((
+    icon-size: 24px,
+    icon-color: red,
+    state-layer-size: 60px,
+    state-layer-color: orange,
+  ));
 }

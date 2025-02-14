@@ -1,16 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MaterialComponent } from "./material/material.component";
-import { PrimengComponent } from "./primeng/primeng.component";
-import { NgzorroComponent } from "./ngzorro/ngzorro.component";
 import { ButtonCollectionComponent } from "./collections/button-collection/button-collection.component";
+
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MaterialComponent, PrimengComponent, NgzorroComponent, ButtonCollectionComponent],
+  imports: [RouterOutlet, ButtonCollectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'angular-ui-playground';
+
+  constructor(private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      `my_download_icon`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/download.svg")
+    )
+  }
 }
