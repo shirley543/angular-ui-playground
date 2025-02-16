@@ -11,6 +11,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { $dt } from '@primeng/themes';
+import { SvgIconComponent } from "../../shared-components/svg-icon/svg-icon.component";
 
 
 
@@ -20,8 +21,7 @@ import { $dt } from '@primeng/themes';
     MatButtonModule,
     ButtonModule,
     NzButtonModule,
-    MatIconModule
-  ],
+    MatIconModule, SvgIconComponent],
   templateUrl: './button-collection.component.html',
   styleUrl: './button-collection.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
