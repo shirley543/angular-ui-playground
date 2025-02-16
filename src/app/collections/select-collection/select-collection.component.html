@@ -1,0 +1,36 @@
+<div class="select-collection">
+  <div class="select-container">
+    <!-- Material select -->
+    <mat-form-field>
+      <mat-label>Toppings</mat-label>
+      <mat-select [formControl]="toppings" multiple>
+        <mat-select-trigger>
+          {{toppings.value?.[0] || ''}}
+          @if ((toppings.value?.length || 0) > 1) {
+            <span class="example-additional-selection">
+              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          }
+        </mat-select-trigger>
+        @for (topping of toppingList; track topping) {
+          <mat-option [value]="topping">{{topping}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="select-container">
+    <!-- PrimeNG select -->
+    <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    <div class="card flex justify-center">
+      <p-multiselect [options]="groupedCities" [group]="true" [(ngModel)]="selectedCities" placeholder="Select Cities" scrollHeight="250px" display="chip" styleClass="w-full md:w-80">
+        <ng-template let-group #group>
+          <div class="flex items-center">
+            <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
+            <span>{{ group.label }}</span>
+          </div>
+        </ng-template>
+      </p-multiselect>
+    </div>
+  </div>
+</div>

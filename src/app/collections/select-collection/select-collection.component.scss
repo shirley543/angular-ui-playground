@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.select-collection {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
