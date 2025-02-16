@@ -7,6 +7,15 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
+function alphabet(): string[] {
+  const children: string[] = [];
+  for (let i = 10; i < 36; i++) {
+    children.push(i.toString(36) + i);
+  }
+  return children;
+}
 
 interface City {
   name: string;
@@ -18,7 +27,8 @@ interface City {
   imports: [
     FormsModule, ReactiveFormsModule,
     Select, MultiSelectModule,
-    MatSelectModule, MatFormFieldModule
+    MatSelectModule, MatFormFieldModule,
+    NzSelectModule
   ],
   templateUrl: './select-collection.component.html',
   styleUrl: './select-collection.component.scss',
@@ -29,6 +39,7 @@ export class SelectCollectionComponent {
 
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   
+  
   // For single select
   cities: City[] | undefined;
   selectedCity: City | undefined;
@@ -37,7 +48,11 @@ export class SelectCollectionComponent {
   groupedCities!: SelectItemGroup[];
   selectedCities!: City[];
 
+  readonly listOfOption: string[] = alphabet();
+  listOfSelectedValue = ['a10', 'c12'];
+
   ngOnInit() {
+    
     this.cities = [
       { name: 'New York', code: 'NY' },
       { name: 'Rome', code: 'RM' },

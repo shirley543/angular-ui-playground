@@ -10,10 +10,17 @@
 
   align-items: center;
   justify-content: center;
+
+  width: 300px;
 }
 
 .select-collection {
   display: flex;
   flex-direction: row;
   gap: 12px;
+  width: 100%;
+}
+
+nz-select {
+  width: 100%;
 }
