@@ -13,6 +13,9 @@ import { CustomerService } from '../../services/customer.service';
 import { Customer, Representative } from '../../domain/customer';
 import { CommonModule } from '@angular/common';
 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatChipsModule} from '@angular/material/chips';
+
 /**
  * @title Data table with sorting, pagination, and filtering.
  */
@@ -22,8 +25,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: 'material-table.component.html',
   imports: [
     CommonModule,
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
-})
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
+    MatProgressBarModule, MatChipsModule
+  ]
+  })
 export class MaterialTable implements AfterViewInit {
   // displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   displayedColumns: string[] = ['name', 'agent', 'date', 'balance', 'status', 'activity'];
