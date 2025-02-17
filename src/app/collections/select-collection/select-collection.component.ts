@@ -46,6 +46,39 @@ export class SelectCollectionComponent {
   // readonly listOfOption: string[] = alphabet();
   // listOfSelectedValue = ['a10', 'c12'];
 
+
+  // PrimeNG overrides
+  customizedPrimengSelect = {
+    borderRadius: "1000px",
+    paddingX: "24px",
+    paddingY: "24px",
+
+    background: "orange",
+    placeholderColor: "red",
+    color: "maroon",
+
+    borderColor: "red",
+    hoverBorderColor: "pink",
+    focusBorderColor: "purple",
+
+    overlayBackground: "orange",
+    overlayBorderColor: "purple",
+
+    optionColor: "green",
+    optionFocusColor: "darkgreen",
+    optionFocusBackground: "lightblue",
+    optionGroupColor: "red",
+    optionGroupFontWeight: "900",
+    optionBorderRadius: "0px",
+
+    dropdownWidth: "60px",
+    dropdownColor: "red",
+
+    listPadding: "0px",
+
+    checkmarkColor: "red", ///< Note: Not working
+  };
+
   ngOnInit() {
     
     this.cities = [
