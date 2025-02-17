@@ -1,29 +1,60 @@
 <div class="select-collection">
   <div class="select-container">
-    <!-- Material select -->
+    <!-- Material select, with form control -->
     <mat-form-field>
-      <mat-label>Toppings</mat-label>
-      <mat-select [formControl]="toppings" multiple>
+      <mat-label>Select City</mat-label>
+      <mat-select [(ngModel)]="selectedCity" multiple>
+        @for (group of groupedCities; track group) {
+          <mat-optgroup [label]="group.label"
+                        [disabled]="false">
+            @for (city of group.items; track city) {
+              <mat-option [value]="city.value">{{city.label}}</mat-option>
+            }
+          </mat-optgroup>
+        }
         <mat-select-trigger>
-          {{toppings.value?.[0] || ''}}
-          @if ((toppings.value?.length || 0) > 1) {
+          {{selectedCities?.[0] || ''}}
+          @if ((selectedCities?.length || 0) > 1) {
             <span class="example-additional-selection">
-              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+              (+{{(selectedCities?.length || 0) - 1}} {{selectedCities?.length === 2 ? 'other' : 'others'}})
             </span>
           }
         </mat-select-trigger>
-        @for (topping of toppingList; track topping) {
-          <mat-option [value]="topping">{{topping}}</mat-option>
-        }
       </mat-select>
     </mat-form-field>
+
+    <!-- Material multi-select, with ngModel -->
+    <mat-form-field>
+      <mat-label>Select Cities</mat-label>
+      <mat-select [(ngModel)]="selectedCities" multiple>
+        @for (group of groupedCities; track group) {
+          <mat-optgroup [label]="group.label"
+                        [disabled]="false">
+            @for (city of group.items; track city) {
+              <mat-option [value]="city.value">{{city.label}}</mat-option>
+            }
+          </mat-optgroup>
+        }
+        <mat-select-trigger>
+          {{selectedCities?.[0] || ''}}
+          @if ((selectedCities?.length || 0) > 1) {
+            <span class="example-additional-selection">
+              (+{{(selectedCities?.length || 0) - 1}} {{selectedCities?.length === 2 ? 'other' : 'others'}})
+            </span>
+          }
+        </mat-select-trigger>
+      </mat-select>
+    </mat-form-field>
+
   </div>
 
   <div class="select-container">
     <!-- PrimeNG select -->
     <p-select [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    
+    <!-- PrimeNG multi-select, with ngModel -->
     <div class="card flex justify-center">
-      <p-multiselect [options]="groupedCities" [group]="true" [(ngModel)]="selectedCities" placeholder="Select Cities" scrollHeight="250px" display="chip" styleClass="w-full md:w-80">
+      <p-multiselect [options]="groupedCities" [group]="true" [(ngModel)]="selectedCities" placeholder="Select Cities" scrollHeight="250px" styleClass="w-full md:w-80">
         <ng-template let-group #group>
           <div class="flex items-center">
             <img src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + group.value" style="width: 20px" />
@@ -35,18 +66,22 @@
   </div>
 
   <div class="select-container">
-    <!-- NgZorro select -->
+    <!-- NgZorro multi-select, with ngModel -->
     <nz-select
       [nzMaxTagCount]="3"
       [nzMaxTagPlaceholder]="tagPlaceHolder"
       nzMode="multiple"
-      nzPlaceHolder="Please select"
-      [(ngModel)]="listOfSelectedValue"
+      nzPlaceHolder="Select Cities"
+      [(ngModel)]="selectedCities"
     >
-      @for (item of listOfOption; track item) {
-        <nz-option [nzLabel]="item" [nzValue]="item"></nz-option>
+      @for (group of groupedCities; track group) {
+        <nz-option-group nzLabel="{{group.label}}">
+          @for (city of group.items; track city) {
+            <nz-option nzValue="{{city.value}}" nzLabel="{{city.label}}"></nz-option>
+          }
+        </nz-option-group>
       }
     </nz-select>
-    <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+    <ng-template #tagPlaceHolder let-selectedList>(+{{ selectedList.length }} others)</ng-template>
   </div>
 </div>

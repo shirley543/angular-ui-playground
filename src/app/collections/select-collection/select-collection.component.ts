@@ -35,10 +35,8 @@ interface City {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectCollectionComponent {
-  toppings = new FormControl('');
-
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-  
+  // toppings = new FormControl('');
+  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   
   // For single select
   cities: City[] | undefined;
@@ -48,8 +46,8 @@ export class SelectCollectionComponent {
   groupedCities!: SelectItemGroup[];
   selectedCities!: City[];
 
-  readonly listOfOption: string[] = alphabet();
-  listOfSelectedValue = ['a10', 'c12'];
+  // readonly listOfOption: string[] = alphabet();
+  // listOfSelectedValue = ['a10', 'c12'];
 
   ngOnInit() {
     
