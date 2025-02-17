@@ -105,9 +105,31 @@ export class MaterialTable implements AfterViewInit {
     });
   }
 
+  isRepresentative(object: any) {
+    if (typeof object === 'object')
+    {
+      return 'name' in object && 'image' in object;
+    }
+    return false;
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    // Updating to use custom filter predicate to handle
+    // searching by field of object for representative name
+    this.dataSource.filterPredicate = (data: Customer, filter: string): boolean => {
+      const dataArray = Object.values(data).map((entry) => {
+        if (this.isRepresentative(entry)) {
+          return (entry as Representative).name?.toLowerCase();
+        } else {
+          return entry.toString().toLowerCase();
+        }
+      });
+      const dataStr = dataArray.filter((value) => value !== undefined).join("");
+      return dataStr.includes(filter);
+    }
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
