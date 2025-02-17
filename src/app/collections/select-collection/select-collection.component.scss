@@ -1,5 +1,31 @@
+@use '@angular/material' as mat;
+
 :host {
   display: block;
+
+  ::ng-deep {
+    // Issue: can't style pseudo checkbox...
+    // @include mat.checkbox-overrides((
+    //   label-text-color: red,
+    //   selected-pressed-icon-color: red,
+    //   selected-checkmark-color: red,
+
+    //   selected-focus-icon-color: red,
+    //   selected-hover-icon-color: red,
+    //   selected-icon-color: red,
+    // ));
+
+    // @include mat.pseudo-checkbox-overrides((
+    //   full-selected-icon-color: red,
+    //   full-selected-checkmark-color: red,
+    //   full-unselected-icon-color: red,
+    //   full-disabled-selected-checkmark-color: red,
+    //   full-disabled-unselected-icon-color: red,
+    //   full-disabled-selected-icon-color: red,
+    //   minimal-selected-checkmark-color: red,
+    //   minimal-disabled-selected-checkmark-color: red,
+    // ));
+  }
 }
 
 
@@ -22,7 +48,6 @@
 }
 
 // Material styling
-
 mat-form-field {
   width: 100%;
 }
@@ -32,6 +57,41 @@ mat-form-field {
   font-size: 0.75em;
   line-height: 1;
 }
+
+.customized-mat-form-field {
+  @include mat.form-field-overrides((
+    // Filled
+    filled-container-shape: 24px,
+    filled-container-color: #FFFFFF,
+    filled-focus-active-indicator-color: orange,
+
+    filled-label-text-color: blue,
+    filled-hover-label-text-color: purple,
+
+    filled-label-text-weight: 900,
+
+    // Outlined
+    outlined-container-shape: 12px,
+    outlined-label-text-color: blue,
+    outlined-hover-label-text-color: purple,
+    outlined-label-text-weight: 900,
+    outlined-focus-outline-color: orange,
+    outlined-focus-label-text-color: darkorange,
+
+    outlined-outline-color: pink,
+    outlined-hover-outline-color: red,
+  ));
+}
+
+.customized-mat-select {
+  @include mat.select-overrides((
+    panel-background-color: orange,
+    enabled-trigger-text-color: red,
+    enabled-arrow-color: green,
+  ));
+}
+
+// TODOs how to customize multiselect dropdown panel?
 
 // PrimeNG styling
 p-select {

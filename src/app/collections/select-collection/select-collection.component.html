@@ -11,7 +11,7 @@
     </mat-form-field>
 
     <!-- Material multi-select, with ngModel -->
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Select Cities</mat-label>
       <mat-select [(ngModel)]="selectedCities" multiple>
         @for (group of groupedCities; track group) {
@@ -33,6 +33,51 @@
       </mat-select>
     </mat-form-field>
 
+    <!-- Material multi-select (filled), with custom styling -->
+    <mat-form-field class="customized-mat-form-field" appearance="fill">
+      <mat-label>Select Cities</mat-label>
+      <mat-select [(ngModel)]="selectedCities" multiple class="customized-mat-select">
+        @for (group of groupedCities; track group) {
+          <mat-optgroup [label]="group.label"
+                        [disabled]="false">
+            @for (city of group.items; track city) {
+              <mat-option [value]="city.value">{{city.label}}</mat-option>
+            }
+          </mat-optgroup>
+        }
+        <mat-select-trigger>
+          {{selectedCities?.[0] || ''}}
+          @if ((selectedCities?.length || 0) > 1) {
+            <span class="example-additional-selection">
+              (+{{(selectedCities?.length || 0) - 1}} {{selectedCities?.length === 2 ? 'other' : 'others'}})
+            </span>
+          }
+        </mat-select-trigger>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Material multi-select (outlined), custom styling -->
+    <mat-form-field class="customized-mat-form-field" appearance="outline">
+      <mat-label>Select Cities</mat-label>
+      <mat-select [(ngModel)]="selectedCities" multiple class="customized-mat-select">
+        @for (group of groupedCities; track group) {
+          <mat-optgroup [label]="group.label"
+                        [disabled]="false">
+            @for (city of group.items; track city) {
+              <mat-option [value]="city.value">{{city.label}}</mat-option>
+            }
+          </mat-optgroup>
+        }
+        <mat-select-trigger>
+          {{selectedCities?.[0] || ''}}
+          @if ((selectedCities?.length || 0) > 1) {
+            <span class="example-additional-selection">
+              (+{{(selectedCities?.length || 0) - 1}} {{selectedCities?.length === 2 ? 'other' : 'others'}})
+            </span>
+          }
+        </mat-select-trigger>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <div class="select-container">
