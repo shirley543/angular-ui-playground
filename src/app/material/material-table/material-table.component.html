@@ -55,7 +55,22 @@
 
     <!-- Status column -->
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Status
+        <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()"><mat-icon>filter_alt</mat-icon></button>
+        <mat-menu #menu="matMenu">
+          <mat-form-field>
+            <mat-label>Filter by status</mat-label>
+            <mat-select [formControl]="selectedStatuses" multiple (click)="$event.stopPropagation()">
+              @for (status of statuses; track status) {
+                <mat-option [value]="status.value">{{status.label}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <button mat-menu-item>Cancel</button>
+          <button mat-menu-item (click)="applyStatusFilter($event)">Apply</button>
+        </mat-menu>
+      </th>
       <td mat-cell *matCellDef="let row">
         <mat-chip>{{row.status }}</mat-chip>
       </td>

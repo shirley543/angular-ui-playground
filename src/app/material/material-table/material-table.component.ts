@@ -18,6 +18,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { FormControl, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -27,10 +33,10 @@ import {MatChipsModule} from '@angular/material/chips';
   styleUrl: 'material-table.component.scss',
   templateUrl: 'material-table.component.html',
   imports: [
-    CommonModule,
+    CommonModule, FormsModule, ReactiveFormsModule,
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
     MatProgressBarModule, MatChipsModule,
-    MatCheckboxModule
+    MatCheckboxModule, MatIconModule, MatButtonModule, MatMenuModule, MatSelectModule
   ]
   })
 export class MaterialTable implements AfterViewInit {
@@ -44,6 +50,8 @@ export class MaterialTable implements AfterViewInit {
   representatives!: Representative[];
   statuses!: any[];
   
+  selectedStatuses = new FormControl<string[]>([]);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -116,6 +124,24 @@ export class MaterialTable implements AfterViewInit {
       return 'name' in object && 'image' in object;
     }
     return false;
+  }
+
+  applyStatusFilter(event: Event) {
+    const filterValues = this.selectedStatuses.value;
+    if (filterValues === null) {
+      return;
+    }
+
+    this.dataSource.filter = filterValues.join(",");
+    this.dataSource.filterPredicate = (data: Customer, filter: string): boolean => {
+      const filterValues = filter.split(",");
+      const result = filterValues.includes(data.status || "");
+      return result;
+    }
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   applyFilter(event: Event) {
