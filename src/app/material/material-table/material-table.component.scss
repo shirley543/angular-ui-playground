@@ -14,3 +14,7 @@ table {
 td, th {
   width: 25%;
 }
+
+.checkbox-column-header, .checkbox-column-data {
+  width: fit-content;
+}

@@ -13,6 +13,9 @@ import { CustomerService } from '../../services/customer.service';
 import { Customer, Representative } from '../../domain/customer';
 import { CommonModule } from '@angular/common';
 
+import {SelectionModel} from '@angular/cdk/collections';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatChipsModule} from '@angular/material/chips';
 
@@ -26,12 +29,13 @@ import {MatChipsModule} from '@angular/material/chips';
   imports: [
     CommonModule,
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    MatProgressBarModule, MatChipsModule
+    MatProgressBarModule, MatChipsModule,
+    MatCheckboxModule
   ]
   })
 export class MaterialTable implements AfterViewInit {
   // displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  displayedColumns: string[] = ['name', 'agent', 'date', 'balance', 'status', 'activity'];
+  displayedColumns: string[] = ['select', 'name', 'agent', 'date', 'balance', 'status', 'activity'];
   // dataSource!: MatTableDataSource<UserData>;
   dataSource!: MatTableDataSource<Customer>;
 
@@ -91,5 +95,33 @@ export class MaterialTable implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  selection = new SelectionModel<Customer>(true, []);
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource?.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource?.data);
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: Customer): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row for ${row.name}`;
+    // return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 }
