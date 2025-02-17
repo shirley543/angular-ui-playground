@@ -85,6 +85,23 @@ export class MaterialTable implements AfterViewInit {
 
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
+      // Modifying sorting data accessor, as default behavior assumes column name is the data accessor,
+      // which is the case for all columns except for "agent" column (data accessed via "representative.name",
+      // passed in via `mat-sort-header`)
+      this.dataSource.sortingDataAccessor = (item, property) => {
+        // Split '.' to allow accessing property of nested object
+        if (property.includes('.')) {
+          const accessor = property.split('.');
+          let value: any = item;
+          accessor.forEach((a) => {
+            value = value[a];
+          });
+          return value;
+        }
+        // Access as normal
+        return (item as any)[property];
+      };
     });
   }
 
