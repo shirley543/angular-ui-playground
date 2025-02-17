@@ -105,6 +105,11 @@ export class MaterialTable implements AfterViewInit {
     });
   }
 
+  /**
+   * Function which returns whether object matches interface for `Representative`
+   * @param object Object to check whether it matches shape of `Representative`
+   * @returns TRUE if match, FALSE otherwise
+   */
   isRepresentative(object: any) {
     if (typeof object === 'object')
     {
