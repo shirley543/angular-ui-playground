@@ -35,12 +35,9 @@ interface City {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectCollectionComponent {
-  // toppings = new FormControl('');
-  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-  
   // For single select
   cities: City[] | undefined;
-  selectedCity: City | undefined;
+  selectedCity = new FormControl('');
 
   // For multi select + grouped
   groupedCities!: SelectItemGroup[];
