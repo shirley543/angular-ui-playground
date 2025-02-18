@@ -1,5 +1,25 @@
+@use '@angular/material' as mat;
+
 :host {
   display: block;
+
+  @include mat.table-overrides((
+    background-color: orange,
+    header-headline-color: red,
+    row-item-label-text-color: blue,
+    row-item-outline-width: 5px,
+
+    header-headline-font: "Arial",
+    header-headline-size: 12px,
+
+    row-item-label-text-font: "Arial",
+    row-item-label-text-size: 10px,
+
+    row-item-label-text-tracking: 6px,
+
+    header-container-height: 6px,
+    row-item-container-height: 90px,
+  ));
 }
 
 table {

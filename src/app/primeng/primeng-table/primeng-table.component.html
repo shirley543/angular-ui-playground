@@ -1,6 +1,7 @@
 <div class="card">
   <p-table
       #dt
+      [dt]="customizedPrimengTable"
       [value]="customers"
       [(selection)]="selectedCustomers"
       dataKey="id"

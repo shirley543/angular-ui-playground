@@ -39,6 +39,67 @@ export class PrimengTableComponent implements OnInit{
 
     searchValue: string = '';
 
+    // TODOss
+    customizedPrimengTable = {
+        header: {
+            cell: {
+                background: "orange",
+                color: "green",
+                padding: "2px",
+                hover: {
+                    background: "pink",
+                    color: "blue"
+                },
+                border: {
+                    color: "purple"
+                },
+                selected: {
+                    background: "red",
+                    color: "black"
+                }
+            },
+        },
+        row: {
+            background: "orange",
+            color: "green",
+            hover: {
+                background: "pink",
+                color: "blue"
+            },
+            selected: {
+                background: "aqua",
+            },
+            toggle: {
+                button: {
+                    selected: {
+                        hover: {
+                            background: "red"
+                        }
+                    }
+                }
+            }
+        },
+        body: {
+            cell: {
+                border: {
+                    color: "purple"
+                },
+                padding: "2px"
+            }
+        },
+        // filter: {
+        //     overlay: {
+        //         select: {
+        //             background: "pink"
+        //         },
+        //         popover: {
+        //             background: "red"
+        //         }
+        //     }
+        // }
+    };
+    
+
     constructor(private customerService: CustomerService) {}
 
     ngOnInit() {
