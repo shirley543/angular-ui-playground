@@ -7,10 +7,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SelectCollectionComponent } from "./collections/select-collection/select-collection.component";
 import { PrimengTableComponent } from "./primeng/primeng-table/primeng-table.component";
 import { MaterialTable } from "./material/material-table/material-table.component";
+import { TimepickerCollectionComponent } from "./collections/timepicker-collection/timepicker-collection.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonCollectionComponent, SelectCollectionComponent, PrimengTableComponent, MaterialTable],
+  imports: [RouterOutlet, ButtonCollectionComponent, SelectCollectionComponent, PrimengTableComponent, MaterialTable, TimepickerCollectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

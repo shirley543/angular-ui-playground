@@ -1,0 +1,37 @@
+<!-- TODOssss timepicker scenarios to consider:
+ - Date range picker
+ - Month range picker
+ - Year range picker
+ - Time picker on date range picker
+ - Time picker solo
+-->
+
+<!-- Material timepicker -->
+<mat-form-field>
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start date">
+    <input matEndDate placeholder="End date">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+
+<!-- PrimeNG timepicker -->
+<div class="card flex justify-center">
+  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" />
+</div>
+
+<!-- NgZorro timepicker -->
+<nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<br />
+<nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<br />
+<nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
+<br />
+<nz-range-picker nzMode="month" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<br />
+<nz-range-picker nzMode="quarter" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<br />
+<nz-range-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
