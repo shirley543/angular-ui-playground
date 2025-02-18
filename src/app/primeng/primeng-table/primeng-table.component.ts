@@ -87,16 +87,16 @@ export class PrimengTableComponent implements OnInit{
                 padding: "2px"
             }
         },
-        // filter: {
-        //     overlay: {
-        //         select: {
-        //             background: "pink"
-        //         },
-        //         popover: {
-        //             background: "red"
-        //         }
-        //     }
-        // }
+        filter: {
+            overlay: {
+                select: {
+                    background: "pink"
+                },
+                popover: {
+                    background: "red"
+                }
+            }
+        }
     };
     
 
