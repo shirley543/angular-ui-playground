@@ -7,63 +7,96 @@
  - Customized styling
 -->
 
-<!-- ------------------- -->
-<!-- Material timepicker -->
-<!-- ------------------- -->
+<div class="timepickers-collection">
+  <!-- ------------------- -->
+  <!-- Material timepicker -->
+  <!-- ------------------- -->
 
-<!-- Material: Date range picker -->
-<mat-form-field>
-  <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date">
-    <input matEndDate placeholder="End date">
-  </mat-date-range-input>
-  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-</mat-form-field>
+  <!-- Material: Date range picker -->
+  <div class="timepicker-container">
+    <mat-form-field>
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+    
+    <!-- Material: Month range picker -->
+    <mat-form-field>
+      <mat-label>Month and Year</mat-label>
+      <input matInput [matDatepicker]="dp" [formControl]="dateMaterial">
+      <mat-hint>MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp
+                      startView="multi-year"
+                      (monthSelected)="setMonthAndYear($event, dp)"
+                      panelClass="example-month-picker">
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
 
-<!-- Material: Month range picker -->
-<mat-form-field>
-  <mat-label>Month and Year</mat-label>
-  <input matInput [matDatepicker]="dp" [formControl]="dateMaterial">
-  <mat-hint>MM/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-  <mat-datepicker #dp
-                  startView="multi-year"
-                  (monthSelected)="setMonthAndYear($event, dp)"
-                  panelClass="example-month-picker">
-  </mat-datepicker>
-</mat-form-field>
+  <!-- ------------------ -->
+  <!-- PrimeNG timepicker -->
+  <!-- ------------------ -->
+  <div class="timepicker-container">
+    <!-- PrimeNG: Date range picker -->
+    <p-iftalabel>
+      <p-datepicker inputId="date_range_picker" [(ngModel)]="rangeDates" selectionMode="range" />
+      <label for="date_range_picker">Date Range</label>
+    </p-iftalabel>
 
-<!-- ------------------ -->
-<!-- PrimeNG timepicker -->
-<!-- ------------------ -->
+    <!-- PrimeNG: Month range picker -->
+    <p-iftalabel>
+      <p-datepicker inputId="month_range_picker" [(ngModel)]="rangeDates" selectionMode="range" view="month" dateFormat="mm/yy" />
+      <label for="month_range_picker">Month Range</label>
+    </p-iftalabel>
 
-<!-- PrimeNG: Date range picker -->
-<div class="card flex justify-center">
-  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" />
+    <!-- PrimeNG: Year range picker -->
+    <p-iftalabel>
+      <p-datepicker inputId="year_range_picker" [(ngModel)]="rangeDates" selectionMode="range" view="year" dateFormat="yy" />
+      <label for="year_range_picker">Year Range</label>
+    </p-iftalabel>
+
+    <!-- PrimeNG: Date + Time picker -->
+    <p-iftalabel>
+      <p-datepicker inputId="date_time_picker" [(ngModel)]="datetime12h" [showTime]="true" [hourFormat]="'12'" />
+      <label for="date_time_picker">Date Time</label>
+    </p-iftalabel>
+    
+    <!-- PrimeNG: Time picker -->
+    <p-iftalabel>
+      <p-datepicker inputId="time_picker" [(ngModel)]="time" [timeOnly]="true" />
+      <label for="time_picker">Time</label>
+    </p-iftalabel>
+
+    <!-- PrimeNG: Date + Time range picker -->
+    <!-- Note: ranged date with time selector is broken (hour does not increment) -->
+    <p-iftalabel>
+      <p-datepicker inputId="date_time_range_picker" [(ngModel)]="rangedatetime12h" [showTime]="true" [hourFormat]="'12'" selectionMode="range" />
+      <label for="date_time_range_picker">Date Time Range (broken)</label>
+    </p-iftalabel>
+  </div>
+
+  <!-- ------------------ -->
+  <!-- NgZorro timepicker -->
+  <!-- ------------------ -->
+  <div class="timepicker-container">
+    <!-- Note: While it provides lots of options, not visible on mobile, as shown on two calendar views -->
+    <nz-range-picker [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+    <br />
+    <nz-range-picker [nzShowTime]="true" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+    <br />
+    <nz-range-picker nzMode="week" [(ngModel)]="dateNgZorro" (ngModelChange)="getWeek($event)"></nz-range-picker>
+    <br />
+    <nz-range-picker nzMode="month" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+    <br />
+    <nz-range-picker nzMode="quarter" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+    <br />
+    <nz-range-picker nzMode="year" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+  </div>
+
 </div>
-
-<!-- PrimeNG: Month range picker -->
-<div class="card flex justify-center">
-  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" view="month" dateFormat="mm/yy" />
-</div>
-
-<!-- PrimeNG: Year range picker -->
-<div class="card flex justify-center">
-  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" view="year" dateFormat="yy" />
-</div>
-
-<!-- NgZorro timepicker -->
-<nz-range-picker [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
-<br />
-<nz-range-picker [nzShowTime]="true" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
-<br />
-<nz-range-picker nzMode="week" [(ngModel)]="dateNgZorro" (ngModelChange)="getWeek($event)"></nz-range-picker>
-<br />
-<nz-range-picker nzMode="month" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
-<br />
-<nz-range-picker nzMode="quarter" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
-<br />
-<nz-range-picker nzMode="year" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>

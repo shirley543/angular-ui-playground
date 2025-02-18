@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 import { DatePicker } from 'primeng/datepicker';
+import { IftaLabelModule } from 'primeng/iftalabel';
 
 import { getISOWeek } from 'date-fns';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
@@ -42,7 +43,7 @@ export const MY_FORMATS: MatDateFormats = {
   imports: [
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule, MatDatepickerModule, MatInputModule, ///< Material
-    DatePicker, ///< PrimeNG
+    DatePicker, IftaLabelModule, ///< PrimeNG
     FormsModule, NzDatePickerModule ///< NgZorro
   ],
   providers: [
@@ -81,9 +82,15 @@ export class TimepickerCollectionComponent {
   }
 
 
-  rangeDates: Date[] | undefined; ///< For primeng
+  // PrimeNG
+  rangeDates: Date[] | undefined;
+  datetime12h: Date[] | undefined;
+  datetime24h: Date[] | undefined;
+  time: Date[] | undefined;
+  rangedatetime12h: Date[] | undefined;
 
-  dateNgZorro = null; ///< NgZorro
+  ///< NgZorro
+  dateNgZorro = null;
 
   onChange(result: Date[]): void {
     console.log('onChange: ', result);
