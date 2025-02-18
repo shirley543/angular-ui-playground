@@ -11,7 +11,7 @@
 <!-- Material timepicker -->
 <!-- ------------------- -->
 
-<!-- Date range picker -->
+<!-- Material: Date range picker -->
 <mat-form-field>
   <mat-label>Enter a date range</mat-label>
   <mat-date-range-input [rangePicker]="picker">
@@ -23,7 +23,7 @@
   <mat-date-range-picker #picker></mat-date-range-picker>
 </mat-form-field>
 
-<!-- Month range picker -->
+<!-- Material: Month range picker -->
 <mat-form-field>
   <mat-label>Month and Year</mat-label>
   <input matInput [matDatepicker]="dp" [formControl]="dateMaterial">
@@ -36,9 +36,23 @@
   </mat-datepicker>
 </mat-form-field>
 
+<!-- ------------------ -->
 <!-- PrimeNG timepicker -->
+<!-- ------------------ -->
+
+<!-- PrimeNG: Date range picker -->
 <div class="card flex justify-center">
   <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" />
+</div>
+
+<!-- PrimeNG: Month range picker -->
+<div class="card flex justify-center">
+  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" view="month" dateFormat="mm/yy" />
+</div>
+
+<!-- PrimeNG: Year range picker -->
+<div class="card flex justify-center">
+  <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" view="year" dateFormat="yy" />
 </div>
 
 <!-- NgZorro timepicker -->
