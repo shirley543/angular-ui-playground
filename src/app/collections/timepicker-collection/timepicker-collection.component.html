@@ -4,9 +4,14 @@
  - Year range picker
  - Time picker on date range picker
  - Time picker solo
+ - Customized styling
 -->
 
+<!-- ------------------- -->
 <!-- Material timepicker -->
+<!-- ------------------- -->
+
+<!-- Date range picker -->
 <mat-form-field>
   <mat-label>Enter a date range</mat-label>
   <mat-date-range-input [rangePicker]="picker">
@@ -18,20 +23,33 @@
   <mat-date-range-picker #picker></mat-date-range-picker>
 </mat-form-field>
 
+<!-- Month range picker -->
+<mat-form-field>
+  <mat-label>Month and Year</mat-label>
+  <input matInput [matDatepicker]="dp" [formControl]="dateMaterial">
+  <mat-hint>MM/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp
+                  startView="multi-year"
+                  (monthSelected)="setMonthAndYear($event, dp)"
+                  panelClass="example-month-picker">
+  </mat-datepicker>
+</mat-form-field>
+
 <!-- PrimeNG timepicker -->
 <div class="card flex justify-center">
   <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" />
 </div>
 
 <!-- NgZorro timepicker -->
-<nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
 <br />
-<nz-range-picker [nzShowTime]="true" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker [nzShowTime]="true" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
 <br />
-<nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
+<nz-range-picker nzMode="week" [(ngModel)]="dateNgZorro" (ngModelChange)="getWeek($event)"></nz-range-picker>
 <br />
-<nz-range-picker nzMode="month" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker nzMode="month" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
 <br />
-<nz-range-picker nzMode="quarter" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker nzMode="quarter" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
 <br />
-<nz-range-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker nzMode="year" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
