@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 @use "./app/styles/my-material-theme-colors.scss" as my-material-theme;
+@use '@carbon/styles/scss/config' with (
+	// Use flexbox for grid - stick to CSS Grid or Flexbox
+	// CSS Grid has become the default grid system in v11
+	$use-flexbox-grid: true,
+	// Update path of fonts to exclude tilde, required for vite (Angular 16+)
+	$font-path: '@ibm/plex'
+);
+@use '@carbon/styles';
 
 // @import "@angular/material/prebuilt-themes/azure-blue.css";
 @import "primeicons/primeicons.css";
-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -29,6 +36,9 @@ html {
     typography: Roboto,
     density: 0,
   ));
+
+  // Apply Carbon theme
+  @include styles.theme(styles.$white);
 }
 
 body {
