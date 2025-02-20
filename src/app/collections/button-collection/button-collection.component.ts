@@ -5,8 +5,10 @@ import { PrimengButtonComponent } from "../../primeng/primeng-button/primeng-but
 import { NgzorroButtonComponent } from "../../ngzorro/ngzorro-button/ngzorro-button.component";
 
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonModule } from 'primeng/button';
+import { ButtonModule as PrimengButtonModule } from 'primeng/button';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ButtonModule as CarbonButtonModule }  from 'carbon-components-angular';
+
 
 import { MatIconModule } from '@angular/material/icon';
 
@@ -19,8 +21,9 @@ import { SvgIconComponent } from "../../shared-components/svg-icon/svg-icon.comp
   selector: 'app-button-collection',
   imports: [MaterialButtonComponent, PrimengButtonComponent, NgzorroButtonComponent,
     MatButtonModule,
-    ButtonModule,
+    PrimengButtonModule,
     NzButtonModule,
+    CarbonButtonModule,
     MatIconModule, SvgIconComponent],
   templateUrl: './button-collection.component.html',
   styleUrl: './button-collection.component.scss',
