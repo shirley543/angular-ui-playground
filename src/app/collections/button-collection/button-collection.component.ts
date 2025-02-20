@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { $dt } from '@primeng/themes';
 import { SvgIconComponent } from "../../shared-components/svg-icon/svg-icon.component";
 
+import { IconModule as CarbonIconModule } from 'carbon-components-angular';
 
 
 @Component({
@@ -23,7 +24,7 @@ import { SvgIconComponent } from "../../shared-components/svg-icon/svg-icon.comp
     MatButtonModule,
     PrimengButtonModule,
     NzButtonModule,
-    CarbonButtonModule,
+    CarbonButtonModule, CarbonIconModule,
     MatIconModule, SvgIconComponent],
   templateUrl: './button-collection.component.html',
   styleUrl: './button-collection.component.scss',

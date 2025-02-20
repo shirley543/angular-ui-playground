@@ -108,9 +108,64 @@
       [cdsButton]="'primary'"
       [size]="'md'"
       [isExpressive]="true"
-      [disabled]="false">
-      Button
+      [disabled]="false"
+    >
+      Flat Button, Their Icon
+      <svg class="cds--btn__icon" cdsIcon="add" size="16"></svg>
     </button>
-  </div>
 
+    <button
+      [cdsButton]="'primary'"
+      [size]="'md'"
+      [isExpressive]="true"
+      [disabled]="false"
+    >
+      Flat Button, Custom Icon
+      <!-- <svg class="cds--btn__icon" cdsIcon="add" size="16"></svg> -->
+      <!-- <img alt="dropdown icon" src="/assets/download.svg"> -->
+      <mat-icon svgIcon="my_download_icon"></mat-icon>
+    </button>
+
+    <button
+      [cdsButton]="'primary'"
+      [size]="'md'"
+      [isExpressive]="true"
+      [disabled]="true"
+    >
+      Flat Button, Disabled
+    </button>
+
+    <button
+      [cdsButton]="'tertiary'"
+      [size]="'md'"
+      [isExpressive]="true"
+      [disabled]="false"
+    >
+      Stroked Button
+    </button>
+
+    <cds-icon-button
+      buttonId="icon-btn1"
+      type="button"
+      [kind]="'primary'"
+      [align]="'bottom'"
+      [disabled]="false"
+      [showTooltipWhenDisabled]="false"
+      description="Icon Description"
+    >
+      <mat-icon svgIcon="my_download_icon"></mat-icon>
+    </cds-icon-button>
+
+    <cds-icon-button
+      buttonId="icon-btn1"
+      type="button"
+      [kind]="'primary'"
+      [align]="'bottom'"
+      [disabled]="false"
+      [showTooltipWhenDisabled]="false"
+      description="Icon Description"
+    >
+      <svg class="cds--btn__icon" cdsIcon="add" size="16"></svg>
+    </cds-icon-button>
+  </div>
 </div>
