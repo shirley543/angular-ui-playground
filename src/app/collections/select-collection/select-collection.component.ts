@@ -87,39 +87,11 @@ export class SelectCollectionComponent {
   ngOnInit() {
 
     this.citiesCarbon = [
-      {
-        content: 'Germany',
-        value: 'de',
-        items: [
-          { content: 'Berlin', value: 'Berlin', selected: false, },
-          { content: 'Frankfurt', value: 'Frankfurt', selected: false,  },
-          { content: 'Hamburg', value: 'Hamburg', selected: false,  },
-          { content: 'Munich', value: 'Munich', selected: false,  }
-        ],
-        selected: false,
-      },
-      {
-        content: 'USA',
-        value: 'us',
-        items: [
-          { content: 'Chicago', value: 'Chicago', selected: false,  },
-          { content: 'Los Angeles', value: 'Los Angeles', selected: false,  },
-          { content: 'New York', value: 'New York', selected: false,  },
-          { content: 'San Francisco', value: 'San Francisco', selected: false,  }
-        ],
-        selected: false, 
-      },
-      {
-        content: 'Japan',
-        value: 'jp',
-        items: [
-          { content: 'Kyoto', value: 'Kyoto', selected: false,  },
-          { content: 'Osaka', value: 'Osaka', selected: false,  },
-          { content: 'Tokyo', value: 'Tokyo', selected: false,  },
-          { content: 'Yokohama', value: 'Yokohama', selected: false,  }
-        ],
-        selected: false, 
-      }
+      { content: 'New York', code: 'NY', selected: false },
+      { content: 'Rome', code: 'RM', selected: false },
+      { content: 'London', code: 'LDN', selected: false },
+      { content: 'Istanbul', code: 'IST', selected: false },
+      { content: 'Paris', code: 'PRS', selected: false }
     ]
     
     this.cities = [

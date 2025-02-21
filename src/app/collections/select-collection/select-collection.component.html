@@ -1,6 +1,7 @@
 <div class="select-collection">
   <div class="select-container">
     <!-- Material select, with form control -->
+    <h2>Angular Material</h2>
     <mat-form-field>
       <mat-label>Select a City</mat-label>
       <mat-select [formControl]="selectedCity">
@@ -68,6 +69,7 @@
   </div>
 
   <div class="select-container">
+    <h2>PrimeNG</h2>
     <!-- PrimeNG select -->
     <p-select [options]="cities" [formControl]="selectedCity" optionLabel="name" optionValue="code" placeholder="Select a City" />
     
@@ -98,6 +100,7 @@
   </div>
 
   <div class="select-container">
+    <h2>NgZorro</h2>
     <!-- NgZorro select, with form control -->
     <nz-select
       nzPlaceHolder="Select a City"
@@ -127,15 +130,16 @@
     <ng-template #tagPlaceHolder let-selectedList>(+{{ selectedList.length }} others)</ng-template>
   </div>
 
-  <div>
+  <div class="select-container">
+    <h2>Carbon</h2>
     <!-- Carbon multi-select, with ngModel -->
     <cds-dropdown
       type="multi"
-      [selectionFeedback]="'top'"
+      [selectionFeedback]="'fixed'"
       [(ngModel)]="selectedCitiesCarbon"
       [label]="'Selected Cities (Multi-select does not allow grouping)'"
       [hideLabel]="false"
-      [warn]="true"
+      [warn]="false"
       [warnText]="'Warning text'"
       (selected)="selectedCarbon($event)"
       (onClose)="onCloseCarbon($event)"
