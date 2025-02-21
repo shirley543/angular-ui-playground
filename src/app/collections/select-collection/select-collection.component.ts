@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { NzSelectModule } from 'ng-zorro-antd/select';
 
+import { DropdownModule as CarbonDropdownModule, ListItem as CarbonListItem } from 'carbon-components-angular';
+
 function alphabet(): string[] {
   const children: string[] = [];
   for (let i = 10; i < 36; i++) {
@@ -28,7 +30,8 @@ interface City {
     FormsModule, ReactiveFormsModule,
     Select, MultiSelectModule,
     MatSelectModule, MatFormFieldModule,
-    NzSelectModule
+    NzSelectModule,
+    CarbonDropdownModule,
   ],
   templateUrl: './select-collection.component.html',
   styleUrl: './select-collection.component.scss',
@@ -45,6 +48,8 @@ export class SelectCollectionComponent {
 
   // readonly listOfOption: string[] = alphabet();
   // listOfSelectedValue = ['a10', 'c12'];
+  citiesCarbon!: CarbonListItem[];
+  selectedCitiesCarbon!: CarbonListItem[];
 
 
   // PrimeNG overrides
@@ -80,6 +85,42 @@ export class SelectCollectionComponent {
   };
 
   ngOnInit() {
+
+    this.citiesCarbon = [
+      {
+        content: 'Germany',
+        value: 'de',
+        items: [
+          { content: 'Berlin', value: 'Berlin', selected: false, },
+          { content: 'Frankfurt', value: 'Frankfurt', selected: false,  },
+          { content: 'Hamburg', value: 'Hamburg', selected: false,  },
+          { content: 'Munich', value: 'Munich', selected: false,  }
+        ],
+        selected: false,
+      },
+      {
+        content: 'USA',
+        value: 'us',
+        items: [
+          { content: 'Chicago', value: 'Chicago', selected: false,  },
+          { content: 'Los Angeles', value: 'Los Angeles', selected: false,  },
+          { content: 'New York', value: 'New York', selected: false,  },
+          { content: 'San Francisco', value: 'San Francisco', selected: false,  }
+        ],
+        selected: false, 
+      },
+      {
+        content: 'Japan',
+        value: 'jp',
+        items: [
+          { content: 'Kyoto', value: 'Kyoto', selected: false,  },
+          { content: 'Osaka', value: 'Osaka', selected: false,  },
+          { content: 'Tokyo', value: 'Tokyo', selected: false,  },
+          { content: 'Yokohama', value: 'Yokohama', selected: false,  }
+        ],
+        selected: false, 
+      }
+    ]
     
     this.cities = [
       { name: 'New York', code: 'NY' },
@@ -123,5 +164,12 @@ export class SelectCollectionComponent {
     ];
   }
 
+  selectedCarbon(event: Object) {
+    console.log(event);
+  }
+
+  onCloseCarbon(event: Object) {
+    console.log(event);
+  }
 }
 

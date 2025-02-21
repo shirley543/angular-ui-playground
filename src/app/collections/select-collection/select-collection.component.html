@@ -126,4 +126,22 @@
     </nz-select>
     <ng-template #tagPlaceHolder let-selectedList>(+{{ selectedList.length }} others)</ng-template>
   </div>
+
+  <div>
+    <!-- Carbon multi-select, with ngModel -->
+    <cds-dropdown
+      type="multi"
+      [selectionFeedback]="'top'"
+      [(ngModel)]="selectedCitiesCarbon"
+      [label]="'Selected Cities (Multi-select does not allow grouping)'"
+      [hideLabel]="false"
+      [warn]="true"
+      [warnText]="'Warning text'"
+      (selected)="selectedCarbon($event)"
+      (onClose)="onCloseCarbon($event)"
+    >
+      <cds-dropdown-list [items]="citiesCarbon"></cds-dropdown-list>
+    </cds-dropdown>
+
+  </div>
 </div>
