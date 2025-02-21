@@ -14,6 +14,7 @@
 
   <!-- Material: Date range picker -->
   <div class="timepicker-container">
+    <h2 class="playground-header">Material: Date</h2>
     <mat-form-field appearance="outline">
       <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
@@ -27,7 +28,7 @@
     
     <!-- Material: Month range picker -->
     <mat-form-field>
-      <mat-label>Month and Year</mat-label>
+      <mat-label>Month and Year (broken, moment.js)</mat-label>
       <input matInput [matDatepicker]="dp" [formControl]="dateMaterial">
       <mat-hint>MM/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
@@ -43,6 +44,7 @@
   <!-- PrimeNG timepicker -->
   <!-- ------------------ -->
   <div class="timepicker-container">
+    <h2 class="playground-header">PrimeNG: Date</h2>
     <!-- PrimeNG: Date range picker -->
     <p-iftalabel>
       <p-datepicker inputId="date_range_picker" [(ngModel)]="rangeDates" selectionMode="range" />
@@ -85,6 +87,7 @@
   <!-- NgZorro timepicker -->
   <!-- ------------------ -->
   <div class="timepicker-container">
+    <h2 class="playground-header">NgZorro: Date</h2>
     <!-- Note: While it provides lots of options, not visible on mobile, as shown on two calendar views -->
     <nz-range-picker [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
     <br />
@@ -104,11 +107,10 @@
   <!-- ------------------ -->
 
   <div class="timepicker-container">
-    <h2>Carbon</h2>
-    <p> (Datepicker broken keyboard support, timepicker broken and does not pass via Date just strings</p>
+    <h2 class="playground-header">Carbon: Date</h2>
     
     <!-- Carbon: Date range -->
-    <h4>Date picker</h4>
+    <h6>Date picker</h6>
     <cds-date-picker
       [label]="'Date Range'"
       [range]="true"
@@ -120,7 +122,7 @@
 
     <!-- Carbon: Time picker -->
     <!-- Example broken (no time period input): https://angular.carbondesignsystem.com/?path=/story/components-timepicker--basic -->
-    <h4>Time picker</h4>
+    <h6>Time picker (example broken, missing time input field)</h6>
     <cds-timepicker
       (valueChange)="carbonTimePickerChange($event)"
       [(ngModel)]="carbonTime"
