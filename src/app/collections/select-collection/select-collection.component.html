@@ -132,7 +132,22 @@
 
   <div class="select-container">
     <h2>Carbon</h2>
-    <!-- Carbon multi-select, with ngModel -->
+
+    <!-- Carbon single-select, with groupings -->
+    <cds-select
+      [label]="'Select city from a group'"
+      [formControl]="selectedCity"
+    >
+      @for (group of groupedCities; track group) {
+        <optgroup label="{{group.label}}">
+          @for (city of group.items; track city) {
+            <option value="{{city.value}}">{{city.label}}</option>
+          }
+        </optgroup>
+      }
+    </cds-select>
+
+    <!-- Carbon multi-select (dropdown), with ngModel -->
     <cds-dropdown
       type="multi"
       [selectionFeedback]="'fixed'"

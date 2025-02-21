@@ -9,7 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { NzSelectModule } from 'ng-zorro-antd/select';
 
-import { DropdownModule as CarbonDropdownModule, ListItem as CarbonListItem } from 'carbon-components-angular';
+import { 
+  DropdownModule as CarbonDropdownModule, 
+  ListItem as CarbonListItem, 
+  SelectModule as CarbonSelectModule } from 'carbon-components-angular';
 
 function alphabet(): string[] {
   const children: string[] = [];
@@ -31,7 +34,7 @@ interface City {
     Select, MultiSelectModule,
     MatSelectModule, MatFormFieldModule,
     NzSelectModule,
-    CarbonDropdownModule,
+    CarbonDropdownModule, CarbonSelectModule,
   ],
   templateUrl: './select-collection.component.html',
   styleUrl: './select-collection.component.scss',
@@ -93,7 +96,7 @@ export class SelectCollectionComponent {
       { content: 'Istanbul', code: 'IST', selected: false },
       { content: 'Paris', code: 'PRS', selected: false }
     ]
-    
+
     this.cities = [
       { name: 'New York', code: 'NY' },
       { name: 'Rome', code: 'RM' },
