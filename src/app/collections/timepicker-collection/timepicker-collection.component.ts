@@ -13,6 +13,10 @@ import { IftaLabelModule } from 'primeng/iftalabel';
 import { getISOWeek } from 'date-fns';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
+import { DatePickerModule as CarbonDatePickerModule } from 'carbon-components-angular';
+import { TimePickerSelectModule as CarbonTimePickerSelectModule } from 'carbon-components-angular';
+
+
 // // Depending on whether rollup is used, moment needs to be imported differently.
 // // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // // syntax. However, rollup creates a synthetic default module and we thus need to import it using
@@ -44,7 +48,8 @@ export const MY_FORMATS: MatDateFormats = {
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule, MatDatepickerModule, MatInputModule, ///< Material
     DatePicker, IftaLabelModule, ///< PrimeNG
-    FormsModule, NzDatePickerModule ///< NgZorro
+    FormsModule, NzDatePickerModule, ///< NgZorro
+    CarbonDatePickerModule, CarbonTimePickerSelectModule, ///< Carbon
   ],
   providers: [
     provideNativeDateAdapter(MY_FORMATS),
@@ -98,6 +103,28 @@ export class TimepickerCollectionComponent {
 
   getWeek(result: Date[]): void {
     console.log('week: ', result.map(getISOWeek));
+  }
+
+  ///< Carbon
+  carbonTime: string = '';
+  carbonPeriod: string = '';
+  carbonTimeZone: string = '';
+
+  carbonDateFormat = 'd/m/Y';
+  carbonFlatpickrOptions = {
+    "minDate": "2024-10-31T13:00:00.000Z",
+    "maxDate": "2024-11-29T13:00:00.000Z"
+  };
+  carbonValueChangeCarbon(event: any) {
+    console.log(event);
+  }
+
+  carbonTimePickerChange(event: any) {
+    console.log(event);
+  }
+
+  carbonTimePickerSelectChange(event: any) {
+    console.log(event);
   }
 
 }

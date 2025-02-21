@@ -14,7 +14,7 @@
 
   <!-- Material: Date range picker -->
   <div class="timepicker-container">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
         <input matStartDate placeholder="Start date">
@@ -97,6 +97,54 @@
     <nz-range-picker nzMode="quarter" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
     <br />
     <nz-range-picker nzMode="year" [(ngModel)]="dateNgZorro" (ngModelChange)="onChange($event)"></nz-range-picker>
+  </div>
+
+  <!-- ------------------ -->
+  <!-- Carbon timepicker -->
+  <!-- ------------------ -->
+
+  <div class="timepicker-container">
+    <h2>Carbon</h2>
+    <p> (Datepicker broken keyboard support, timepicker broken and does not pass via Date just strings</p>
+    
+    <!-- Carbon: Date range -->
+    <h4>Date picker</h4>
+    <cds-date-picker
+      [label]="'Date Range'"
+      [range]="true"
+      [dateFormat]="carbonDateFormat"
+      [flatpickrOptions]="carbonFlatpickrOptions"
+      (valueChange)="carbonValueChangeCarbon($event)"
+    >
+    </cds-date-picker>
+
+    <!-- Carbon: Time picker -->
+    <!-- Example broken (no time period input): https://angular.carbondesignsystem.com/?path=/story/components-timepicker--basic -->
+    <h4>Time picker</h4>
+    <cds-timepicker
+      (valueChange)="carbonTimePickerChange($event)"
+      [(ngModel)]="carbonTime"
+      label="Select a time">
+      <cds-timepicker-select
+          (valueChange)="carbonTimePickerSelectChange($event)"
+          [(ngModel)]="carbonPeriod"
+          ariaLabel="Open list of options">
+          <option selected value="AM">AM</option>
+          <option value="PM">PM</option>
+      </cds-timepicker-select>
+      <cds-timepicker-select
+          (valueChange)="carbonTimePickerSelectChange($event)"
+          [(ngModel)]="carbonTimeZone"
+          ariaLabel="Open list of options">
+          <option selected value="Time Zone 1">Time Zone 1</option>
+          <option value="Time Zone 2">Time Zone 2</option>
+      </cds-timepicker-select>
+  </cds-timepicker>
+  <br>
+  <p> Input: {{carbonTime}} </p>
+  <p> Period: {{carbonPeriod}} </p>
+  <p> Time Zone: {{carbonTimeZone}} </p>
+
   </div>
 
 </div>
