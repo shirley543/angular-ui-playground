@@ -8,10 +8,11 @@ import { SelectCollectionComponent } from "./collections/select-collection/selec
 import { PrimengTableComponent } from "./primeng/primeng-table/primeng-table.component";
 import { MaterialTable } from "./material/material-table/material-table.component";
 import { TimepickerCollectionComponent } from "./collections/timepicker-collection/timepicker-collection.component";
+import { CarbonTableComponent } from "./carbon/carbon-table/carbon-table.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonCollectionComponent, SelectCollectionComponent, PrimengTableComponent, MaterialTable, TimepickerCollectionComponent],
+  imports: [RouterOutlet, ButtonCollectionComponent, SelectCollectionComponent, PrimengTableComponent, MaterialTable, TimepickerCollectionComponent, CarbonTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

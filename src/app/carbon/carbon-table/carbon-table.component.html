@@ -1,0 +1,74 @@
+<ibm-table-container>
+  <ibm-table-header>
+    <h4 ibmTableHeaderTitle>Filter table</h4>
+    <p ibmTableHeaderDescription>
+      Use the toolbar's search functionality to filter node names
+      or click the filter icon to filter country names
+    </p>
+  </ibm-table-header>
+  <ibm-table-toolbar>
+    <ibm-table-toolbar-content>
+      <ibm-table-toolbar-search
+        [expandable]="true"
+        (valueChange)="filterNodeNames($event)"
+        (clear)="searchValue = ''">
+      </ibm-table-toolbar-search>
+      <!-- <button
+        ibmButton="ghost"
+        class="toolbar-action"
+        [ibmOverflowMenu]="templateRef"
+        placement="bottom"
+        [flip]="true"
+        [offset]="{ x: 3, y: 0 }">
+        <svg ibmIcon="filter" size="16" class="bx--toolbar-action__icon"></svg>
+      </button> -->
+      <button
+        ibmButton="ghost"
+        class="toolbar-action"
+        placement="bottom"
+      >
+        <svg ibmIcon="filter" size="16" class="bx--toolbar-action__icon"></svg>
+      </button>
+
+      <button ibmButton="primary" size="sm">
+        Primary button<svg ibmIcon="add" size="20" class="bx--btn__icon"></svg>
+      </button>
+    </ibm-table-toolbar-content>
+  </ibm-table-toolbar>
+  <ibm-table
+    [model]="model"
+    [sortable]="false"
+    [showSelectionColumn]="true"
+    [enableSingleSelect]="false"
+    [stickyHeader]="true"
+    [striped]="true"
+    [isDataGrid]="true">
+    <ng-content></ng-content>
+  </ibm-table>
+</ibm-table-container>
+
+<ng-template #templateRef>
+  <div style="padding: 0 1rem;" (click)="overflowOnClick($event)">
+    <div style="padding-top: 0.5rem; color: grey;">Countries shown</div>
+    <ibm-checkbox
+      [checked]="displayedCountries.includes('US')"
+      (checkedChange)="filterCountries('US', $event)">
+      US
+    </ibm-checkbox>
+    <ibm-checkbox
+      [checked]="displayedCountries.includes('France')"
+      (checkedChange)="filterCountries('France', $event)">
+      France
+    </ibm-checkbox>
+    <ibm-checkbox
+      [checked]="displayedCountries.includes('Argentina')"
+      (checkedChange)="filterCountries('Argentina', $event)">
+      Argentina
+    </ibm-checkbox>
+    <ibm-checkbox
+      [checked]="displayedCountries.includes('Japan')"
+      (checkedChange)="filterCountries('Japan', $event)">
+      Japan
+    </ibm-checkbox>
+  </div>
+</ng-template>
