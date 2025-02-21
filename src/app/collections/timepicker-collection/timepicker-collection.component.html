@@ -38,6 +38,14 @@
                       panelClass="example-month-picker">
       </mat-datepicker>
     </mat-form-field>
+
+    <!-- Material: Time picker -->
+    <mat-form-field>
+      <mat-label>Pick a time</mat-label>
+      <input matInput [matTimepicker]="picker">
+      <mat-timepicker-toggle matIconSuffix [for]="picker"/>
+      <mat-timepicker #picker/>
+    </mat-form-field>
   </div>
 
   <!-- ------------------ -->

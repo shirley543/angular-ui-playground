@@ -4,8 +4,10 @@ import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MatDateFormats, provideNativeDateAdapter} from '@angular/material/core';
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTimepickerModule} from '@angular/material/timepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+
 
 import { DatePicker } from 'primeng/datepicker';
 import { IftaLabelModule } from 'primeng/iftalabel';
@@ -46,13 +48,14 @@ export const MY_FORMATS: MatDateFormats = {
   selector: 'app-timepicker-collection',
   imports: [
     FormsModule, ReactiveFormsModule,
-    MatFormFieldModule, MatDatepickerModule, MatInputModule, ///< Material
+    MatFormFieldModule, MatDatepickerModule, MatTimepickerModule, MatInputModule, ///< Material
     DatePicker, IftaLabelModule, ///< PrimeNG
     FormsModule, NzDatePickerModule, ///< NgZorro
     CarbonDatePickerModule, CarbonTimePickerSelectModule, ///< Carbon
   ],
   providers: [
-    provideNativeDateAdapter(MY_FORMATS),
+    provideNativeDateAdapter(),
+    // provideNativeDateAdapter(MY_FORMATS),
     // // Moment can be provided globally to your app by adding `provideMomentDateAdapter`
     // // to your app config. We provide it at the component level here, due to limitations
     // // of our example generation script.
